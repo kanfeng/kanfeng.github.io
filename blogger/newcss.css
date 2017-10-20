@@ -14,7 +14,7 @@
 		position: fixed;
 		top: 0;
 		width: 100%;
-		z-index: 1;
+		z-index: 11;
 	}
 
 		#bg div {
@@ -39,11 +39,11 @@
 				animation: bg 45s linear infinite;
 				opacity: 1;
 				visibility: visible;
-				z-index: 1;
+				z-index: 11;
 			}
 
 				#bg div.visible.top {
-					z-index: 2;
+					z-index: 22;
 				}
 
 				@media screen and (max-width: 1280px) {
