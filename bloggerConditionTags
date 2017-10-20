@@ -1,0 +1,116 @@
+#AND
+
+<b:if cond='data:blog.pageType == "index"'>
+  <b:if cond='data:blog.searchQuery'>
+    <!--search_page AND index_page-->
+  </b:if>
+</b:if>
+
+
+#OR
+
+<b:if cond='data:blog.url == data:blog.canonicalHomepageUrl + &quot;p/foo.html&quot;'> 
+  <!-- static_site foo OR static_site bar -->
+      <b:else/>
+<b:if cond='data:blog.url == data:blog.canonicalHomepageUrl + &quot;p/bar.html&quot;'> 
+  <!-- static_site foo OR static_site bar -->
+   </b:if>
+</b:if>
+
+
+#NOT
+
+<b:if cond='data:blog.pageType != "index"'>
+  <!-- all pages NOT index pages -->
+</b:if>
+
+<b:if cond='data:blog.url != data:blog.homepageUrl'> 
+  <!-- all pages NOT homepage -->
+</b:if>
+
+
+
+#Homepage
+
+<b:if cond='data:blog.url == data:blog.homepageUrl'> 
+<!-- only homepage -->
+</b:if>
+
+
+
+#Item (post) pages
+<b:if cond='data:blog.pageType == "item"'>
+<!-- all item pages -->
+</b:if>
+
+#archive page
+<b:if cond='data:blog.pageType == "archive"'>
+  <!--archive_Page-->
+</b:if>
+
+#error page
+<b:if cond='data:blog.pageType == "error_page"'>
+  <!-- all error pages-->
+</b:if>
+
+#index-page
+<b:if cond='data:blog.pageType == "index"'>
+  <!-- all index pages -->
+</b:if>
+
+<b:if cond='data:blog.url == data:blog.homepageUrl'> 
+  <!-- only homepage -->
+</b:if>
+
+#item-page
+<b:if cond='data:blog.pageType == "item"'>
+  <!-- all item pages -->
+</b:if>
+
+<b:if cond='data:blog.url == data:blog.canonicalHomepageUrl + "2014/08/foo.html"'> 
+  <!-- a item page from august 2014 with post-title 'foo'-->
+</b:if>
+
+
+#lable-page
+<b:if cond='data:blog.searchLabel'>
+  <!-- all label pages -->
+</b:if>
+
+<b:if cond='data:blog.searchLabel == "foo"'>
+  <!-- for label 'foo' -->
+</b:if>
+
+<b:if cond='data:post.labels any (l => l.name == "PUT_LABEL_NAME_HERE")'>
+ADD CONTENT HERE
+</b:if>
+
+
+#search-page
+<b:if cond='data:blog.searchQuery'>
+    <!-- all search pages -->
+</b:if>
+
+<b:if cond='data:blog.searchQuery == "foo"'>
+  <!-- for query 'foo' -->
+</b:if>
+
+
+#static-page
+<b:if cond='data:blog.pageType == "static_page"'>
+  <!-- all static pages -->
+</b:if>
+
+<b:if cond='data:blog.url == data:blog.canonicalHomepageUrl + "p/foo.html"'> 
+  <!-- a specific static page with name 'foo' -->
+</b:if>
+
+
+#First Post: This is not for a page type. It's used for targeting the posts on multi-post pages like (index,archive,label,search query).
+<b:if cond='data:post.isFirstPost'>
+  ADD CONTENT HERE
+</b:if>
+
+
+#
+https://support.google.com/blogger/answer/46995
